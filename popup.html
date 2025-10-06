@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enlaces</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 12px;
+      min-width: 280px;
+      background: #f8f9fa;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin: 6px 0 16px 0;
+      text-align: center;
+      color: #212529;
+    }
+
+    .area {
+      margin-bottom: 12px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .area:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .area-header {
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      background: #f1f3f5;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .area-header:hover {
+      background: #e9ecef;
+    }
+
+    .links {
+      display: none;
+      padding: 8px 10px;
+      border-top: 1px solid #dee2e6;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .links a {
+      display: block;
+      padding: 8px 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      color: #0d6efd;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .links a:hover {
+      background: #e7f1ff;
+      transform: translateX(3px);
+    }
+
+    .arrow {
+      font-size: 12px;
+      transition: transform 0.25s ease;
+      color: #495057;
+    }
+
+    .arrow.open {
+      transform: rotate(90deg);
+    }
+
+    #empty {
+      color: #6c757d;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .small {
+      font-size: 11px;
+      color: #868e96;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1> VILASECA - Accesos rápidos</h1>
+  <div id="list-container">
+    <p id="empty">Cargando enlaces...</p>
+  </div>
+   
+  <script src="popup.js"></script>
+</body>
+</html>
