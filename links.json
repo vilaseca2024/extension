@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Sistema Digital 2.0",
+    "url": "https://sites.google.com/agencia-vilaseca.com/sistemadigital20?pli=1",
+    "icon": "🌐"
+  },
+  {
+    "title": "Sistema de Documentación",
+    "url": "https://sites.google.com/agencia-vilaseca.com/sistdoc20/SISTDOC",
+    "icon": "📄"
+  },
+  {
+    "title": "Sistema ERP",
+    "url": "https://erp.agencia-vilaseca.com/",
+    "icon": "💼"
+  },
+  {
+    "title": "Sistema de Trazabilidad",
+    "url": "https://mistramites.agencia-vilaseca.com/login",
+    "icon": "📍"
+  },
+  {
+    "title": "Página Web",
+    "url": "https://agencia-vilaseca.com/",
+    "icon": "🏢"
+  }
+]

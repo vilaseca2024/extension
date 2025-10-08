@@ -3,109 +3,193 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enlaces</title>
+  <title>Enlaces - VILASECA</title>
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      margin: 12px;
-      min-width: 280px;
-      background: #f8f9fa;
+    :root{
+      --accent1: #0ea5e9;
+      --accent2: #7c3aed;
+      --card-radius: 12px;
+      --card-padding: 12px;
+      --icon-size: 48px;
+      --muted: #cbd5e1;
+      --text-dark: #0b1220;
+      --container-bg-start: #0f172a;
+      --container-bg-end: #7c3aed;
     }
 
-    h1 {
-      font-size: 16px;
-      margin: 6px 0 16px 0;
-      text-align: center;
-      color: #212529;
+    /* Reset / base */
+    html,body{
+      margin:0;
+      padding:5px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #ffffff; /* fondo de la ventana: blanco */
+      color: var(--text-dark);
+      min-width:320px;
     }
 
-    .area {
-      margin-bottom: 12px;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: all 0.2s ease-in-out;
+    /* Outer wrapper */
+    #outer {
+      border-radius: 14px;
+      padding:8px;
+      background: transparent;
+      box-sizing: border-box;
     }
 
-    .area:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    /* HEADER: logo + title centrados como un bloque */
+    header.hdr-inline{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+  
+      padding:6px 4px;
+      box-sizing:border-box;
     }
 
-    .area-header {
-      padding: 10px 12px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      background: #f1f3f5;
-      border-radius: 8px 8px 0 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
+    /* header logo */
+    #header-logo {
+      display:block;
+      width:auto;
+      height:50px;
+      border-radius:8px;
+      object-fit:contain;
+      
+      background: white;
+      padding:2px;
     }
 
-    .area-header:hover {
-      background: #e9ecef;
+    header.hdr-inline h1{
+      margin:0;
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:0.4px;
+      color:var(--text-dark);
+      text-transform:uppercase;
     }
 
-    .links {
-      display: none;
-      padding: 8px 10px;
-      border-top: 1px solid #dee2e6;
-      animation: fadeIn 0.3s ease;
+    /* CONTENEDOR con degradado púrpura (para que las tarjetas blancas resalten) */
+    #list-container{
+      background: linear-gradient(135deg, var(--container-bg-start) 0%, var(--container-bg-end) 100%);
+      color: var(--text-dark);
+      border-radius: 12px;
+      padding: calc(var(--card-padding) + 6px);
+      box-shadow: 0 14px 40px rgba(12,10,20,0.12);
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .links a {
-      display: block;
-      padding: 8px 10px;
-      text-decoration: none;
-      border-radius: 6px;
-      color: #0d6efd;
-      font-size: 14px;
-      transition: background 0.2s, transform 0.1s;
+    #empty{ margin:8px 0; color:var(--muted); text-align:center; font-size:13px; }
+
+    /* Tarjetas (cada enlace) - blancas para contrastar con el contenedor oscuro */
+    .link-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px;
+      border-radius:10px;
+      text-decoration:none;
+      color:inherit;
+      margin-bottom:10px;
+      transition: transform 220ms, box-shadow 220ms;
+      background: #ffffff; /* tarjeta blanca */
+      cursor:pointer;
+      border:1px solid rgba(11,18,32,0.04);
+    }
+    .link-item:hover{ transform: translateY(-6px); box-shadow: 0 18px 36px rgba(11,18,32,0.08); }
+
+    /* logo por tarjeta (imagen) */
+    .logo-img {
+      width:var(--icon-size);
+      height:var(--icon-size);
+      border-radius:10px;
+      object-fit:cover;
+      background: linear-gradient(135deg, rgba(14,165,233,0.04), rgba(124,58,237,0.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(11,18,32,0.03);
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .logo-img img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* emoji fallback inside logo box */
+    .logo-emoji {
+      font-size:22px;
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100%;
     }
 
-    .links a:hover {
-      background: #e7f1ff;
-      transform: translateX(3px);
+    .link-text{display:flex;flex-direction:column;flex:1;min-width:0}
+    .link-title{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .link-url{font-size:12px;color:#6b7280;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    /* boton circular con icono en la derecha */
+    .badge-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px;height:36px;
+      border-radius:999px;
+      border:none;
+      background: linear-gradient(90deg,var(--accent1), var(--accent2));
+      box-shadow: 0 8px 18px rgba(124,58,237,0.12);
+      color:white;
+      cursor:pointer;
+      transition: transform 180ms;
+      flex-shrink:0;
+    }
+    .badge-button:hover{ transform: translateY(-3px) scale(1.02); }
+
+    .separator { height:1px; background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); margin:10px 0; border-radius:2px; }
+
+    /* Float animation for logos/emojis */
+    @keyframes floatY {
+      0% { transform: translateY(0) rotate(-1.5deg); }
+      50% { transform: translateY(-6px) rotate(1.5deg); }
+      100% { transform: translateY(0) rotate(-1.5deg); }
     }
 
-    .arrow {
-      font-size: 12px;
-      transition: transform 0.25s ease;
-      color: #495057;
+    /* Apply to img and emoji fallback */
+    .logo-img img, .logo-emoji {
+      animation-name: floatY;
+      animation-duration: 3.8s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: transform;
     }
 
-    .arrow.open {
-      transform: rotate(90deg);
+    @media (prefers-reduced-motion: reduce) {
+      .logo-img img, .logo-emoji {
+        animation: none !important;
+      }
     }
 
-    #empty {
-      color: #6c757d;
-      font-size: 13px;
-      text-align: center;
+    @media (prefers-reduced-motion: reduce){
+      .link-item { transition: none; transform:none; }
     }
 
-    .small {
-      font-size: 11px;
-      color: #868e96;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .small{ text-align:center; margin-top:10px; font-size:12px; color:rgba(255,255,255,0.9) }
   </style>
 </head>
 <body>
-  <h1> VILASECA - Accesos rápidos</h1>
-  <div id="list-container">
-    <p id="empty">Cargando enlaces...</p>
+  <div id="outer">
+    <header class="hdr-inline">
+      <img id="header-logo" alt="Logo institución" src="logo.png"/>
+      <h1>VILASECA - ACCESOS</h1>
+    </header>
+
+    <div id="list-container" role="region" aria-label="Lista de accesos">
+      <p id="empty">Cargando enlaces...</p>
+    </div>
+
+    
   </div>
-   
+
+  <!-- script externo (no inline) -->
   <script src="popup.js"></script>
 </body>
 </html>

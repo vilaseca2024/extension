@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Lista de Enlaces Simple",
+  "name": "Lista de Accesos - Agencia Vilaseca S.A.",
   "version": "1.0",
-  "description": "Muestra un listado simple de URLs; al hacer clic abre en nueva pestaña.",
+  "description": "Listado de Links para acceso rapido a sitios requerido por agencia despachadora de Bolivia.",
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
